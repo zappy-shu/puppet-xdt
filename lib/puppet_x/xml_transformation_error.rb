@@ -1,1 +1,0 @@
-class XmlTransformationError < StandardError; end

@@ -1,4 +1,4 @@
-class XmlArgumentUtility
+class XdtArgumentUtility
     def self.split_arguments(args_string)
         return [] if args_string.empty?
         return [args_string] unless args_string.include?(',')
