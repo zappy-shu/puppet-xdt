@@ -20,5 +20,23 @@ describe XdtTransformRemoveAttributes do
                 expect(source_node.xpath('b')[0].attributes.count).to eql(1)
             end
         end
+        context 'when arguments set' do
+            it 'only remove attributes in arguments' do
+                source_doc = Nokogiri::XML('<root a="aaa" b="bbb" />')
+                source_node = source_doc.root
+                XdtTransformRemoveAttributes.new.transform(source_node, nil, ['a'])
+                expect(source_node.attributes.count).to eql(1)
+                expect(source_node['b']).to eql('bbb')
+            end
+        end
+        context 'when argument not an attribute in source node' do
+            it 'dont throw error' do
+                source_doc = Nokogiri::XML('<root a="aaa" b="bbb" />')
+                source_node = source_doc.root
+                XdtTransformRemoveAttributes.new.transform(source_node, nil, ['a','c'])
+                expect(source_node.attributes.count).to eql(1)
+                expect(source_node['b']).to eql('bbb')
+            end
+        end
     end
 end
