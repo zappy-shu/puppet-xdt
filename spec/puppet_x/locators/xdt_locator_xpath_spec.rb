@@ -3,7 +3,7 @@ require 'nokogiri'
 
 describe XdtLocatorXpath do
     describe '#locate' do
-        context 'when no locator attributes given' do
+        context 'when no locator arguments given' do
             it 'warns and returns empty array' do
                 source_doc = Nokogiri::XML('<root><a/></root>')
                 locator_doc = Nokogiri::XML('<root/>')
@@ -14,7 +14,7 @@ describe XdtLocatorXpath do
                 expect(matching_nodes.length).to eql(0)
             end
         end
-        context 'when more than 1 locator attributes given' do
+        context 'when more than 1 locator arguments given' do
             it 'warns and returns empty array' do
                 source_doc = Nokogiri::XML('<root><a/></root>')
                 locator_doc = Nokogiri::XML('<root/>')
