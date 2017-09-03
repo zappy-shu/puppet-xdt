@@ -7,8 +7,13 @@ class XdtTransformRemoveAttributes
         if tranform_arguments.empty?
             source_node.xpath('@*').remove
         else
-            source_node.attribute_nodes.each do |attr|
-                attr.remove if tranform_arguments.include?(attr.name)
+            tranform_arguments.each do |arg|
+                attr = source_node.attribute_nodes.select { |attr| attr.name == arg }
+                if !attr.nil? && attr.length == 1
+                    attr[0].remove
+                else
+                    warn "Source node '#{source_node.path}' does not contain attribute '#{arg}'"
+                end
             end
         end
     end
