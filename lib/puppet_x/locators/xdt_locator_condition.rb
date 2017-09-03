@@ -1,4 +1,5 @@
 require_relative 'xdt_locator_logger'
+require_relative '../xdt_xpath_reader'
 require 'nokogiri'
 
 class XdtLocatorCondition
@@ -10,7 +11,7 @@ class XdtLocatorCondition
         end
 
         conditions = locator_arguments[0]
-        xpath = "#{locator_node.name}"
+        xpath = XdtXpathReader.read_local(locator_node)
         xpath += "[#{conditions}]" unless conditions.empty?
         return parent_source_node.xpath(xpath)
     end
