@@ -1,4 +1,4 @@
-require_relative '../../../lib/puppet_x/transforms/xdt_transform_remove'
+require 'puppet_x/transforms/xdt_transform_remove'
 require 'nokogiri'
 
 describe XdtTransformRemove do

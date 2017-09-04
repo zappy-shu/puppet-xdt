@@ -1,5 +1,5 @@
-require_relative '../../lib/puppet_x/xdt_namespace'
-require_relative '../../lib/puppet_x/xdt_attribute'
+require 'puppet_x/xdt_namespace'
+require 'puppet_x/xdt_attribute'
 
 require 'nokogiri'
 

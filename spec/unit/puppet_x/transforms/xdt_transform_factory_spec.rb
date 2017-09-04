@@ -1,5 +1,5 @@
-require_relative '../../../lib/puppet_x/xdt_attribute'
-Dir[File.dirname(__FILE__) + '/../../../lib/puppet_x/transforms/*.rb'].each {|file| require file }
+require 'puppet_x/xdt_attribute'
+require 'puppet_x/transforms/xdt_transform_factory'
 
 describe XdtTransformFactory do
     describe '#create' do

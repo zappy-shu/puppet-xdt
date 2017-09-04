@@ -1,5 +1,5 @@
-require_relative '../../../lib/puppet_x/xdt_attribute'
-Dir[File.dirname(__FILE__) + '/../../../lib/puppet_x/locators/*.rb'].each {|file| require file }
+require 'puppet_x/xdt_attribute'
+require 'puppet_x/locators/xdt_locator_factory'
 
 describe XdtLocatorFactory do
     describe '#create' do

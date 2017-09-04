@@ -1,4 +1,4 @@
-require_relative '../../lib/puppet_x/xdt_argument_utility'
+require 'puppet_x/xdt_argument_utility'
 
 describe XdtArgumentUtility do
     describe '.split_arguments' do

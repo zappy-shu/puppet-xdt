@@ -1,4 +1,4 @@
-require_relative '../../../lib/puppet_x/transforms/xdt_transform_insert_before'
+require 'puppet_x/transforms/xdt_transform_insert_before'
 require 'nokogiri'
 
 describe XdtTransformInsertBefore do

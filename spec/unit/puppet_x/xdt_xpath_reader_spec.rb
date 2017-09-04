@@ -1,4 +1,4 @@
-require_relative '../../lib/puppet_x/xdt_xpath_reader'
+require 'puppet_x/xdt_xpath_reader'
 require 'nokogiri'
 
 describe XdtXpathReader do

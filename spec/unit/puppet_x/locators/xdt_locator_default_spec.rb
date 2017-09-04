@@ -1,4 +1,4 @@
-require_relative '../../../lib/puppet_x/locators/xdt_locator_default'
+require 'puppet_x/locators/xdt_locator_default'
 require 'nokogiri'
 
 describe XdtLocatorDefault do

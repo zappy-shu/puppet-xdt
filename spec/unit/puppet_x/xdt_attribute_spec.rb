@@ -1,4 +1,4 @@
-require_relative '../../lib/puppet_x/xdt_attribute'
+require 'puppet_x/xdt_attribute'
 
 describe XdtAttribute do
     describe '#name' do

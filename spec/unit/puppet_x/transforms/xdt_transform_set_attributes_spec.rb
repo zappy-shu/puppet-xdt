@@ -1,4 +1,4 @@
-require_relative '../../../lib/puppet_x/transforms/xdt_transform_set_attributes'
+require 'puppet_x/transforms/xdt_transform_set_attributes'
 require 'nokogiri'
 
 describe XdtTransformSetAttributes do
