@@ -11,6 +11,8 @@ class XdtTransformFactory
             return XdtTransformInsertBefore.new(attr.arguments)
         when 'Insert'
             return XdtTransformInsert.new(attr.arguments)
+        when 'Remove'
+            return XdtTransformRemove.new(attr.arguments)
         when 'RemoveAll'
             return XdtTransformRemoveAll.new(attr.arguments)
         when 'RemoveAttributes'

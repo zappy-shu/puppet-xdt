@@ -33,7 +33,12 @@ class XdtTransformer
 
             @xdt_namespace.remove_xdt_attributes(@transform_doc, transform_child)
             sources = locator.locate(source_node, transform_child)
-            sources.each { |source| transform.transform(source, transform_child) }
+            sources.each do |source|
+                transform.transform(source, transform_child) unless transform.nil?
+                break if transform.is_a?(XdtTransformRemoveAll)
+                next if transform.is_a?(XdtTransformRemove)
+                walk_tree(source, transform_child)
+            end
         end
     end
 end

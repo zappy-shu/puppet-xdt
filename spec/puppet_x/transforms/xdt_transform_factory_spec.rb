@@ -27,6 +27,12 @@ describe XdtTransformFactory do
                 expect(XdtTransformFactory.new.create(attr).is_a?(XdtTransformInsert)).to eql(true)
             end
         end
+        context 'when attribute is a Remove transform' do
+            it 'returns XdtTransformRemove object' do
+                attr = XdtAttribute.new('Transform', 'Remove')
+                expect(XdtTransformFactory.new.create(attr).is_a?(XdtTransformRemove)).to eql(true)
+            end
+        end
         context 'when attribute is a RemoveAll transform' do
             it 'returns XdtTransformRemoveAll object' do
                 attr = XdtAttribute.new('Transform', 'RemoveAll')
