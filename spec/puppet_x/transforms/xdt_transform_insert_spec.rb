@@ -10,7 +10,7 @@ describe XdtTransformInsert do
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.root
 
-                XdtTransformInsert.new.transform(source_node, transform_node, [])
+                XdtTransformInsert.new([]).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(2)
                 expect(source_doc.root.elements[0].to_s).to eql('<a/>')
                 expect(source_doc.root.elements[1].to_s).to eql('<b/>')
@@ -22,7 +22,7 @@ describe XdtTransformInsert do
                 transform_doc = Nokogiri::XML('<b/>')
                 source_node = source_doc.root
                 transform_node = transform_doc.root
-                XdtTransformInsert.new.transform(source_node, transform_node, [])
+                XdtTransformInsert.new([]).transform(source_node, transform_node)
             end
         end
         context 'when source node is first of 2 children of parent' do
@@ -31,7 +31,7 @@ describe XdtTransformInsert do
                 transform_doc = Nokogiri::XML('<b/>')
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.root
-                XdtTransformInsert.new.transform(source_node, transform_node, [])
+                XdtTransformInsert.new([]).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(3)
                 expect(source_doc.root.elements[0].to_s).to eql('<a/>')
                 expect(source_doc.root.elements[1].to_s).to eql('<b/>')

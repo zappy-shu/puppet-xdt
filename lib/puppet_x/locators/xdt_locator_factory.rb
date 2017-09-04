@@ -1,17 +1,19 @@
 Dir[File.dirname(__FILE__) + '/*.rb'].each {|file| require file }
 require_relative '../xdt_attribute'
 
-class XdtTransformFactory
+class XdtLocatorFactory
     def create(attr)
+        return nil unless attr.is_locator?
+
         case attr.value
         when 'Condition'
-            return XdtLocatorCondition.new
+            return XdtLocatorCondition.new(attr.arguments)
         when 'Match'
-            return XdtLocatorMatch.new
+            return XdtLocatorMatch.new(attr.arguments)
         when 'XPath'
-            return XdtLocatorXpath.new
+            return XdtLocatorXpath.new(attr.arguments)
         else
-            return XdtLocatorDefault.new
+            return XdtLocatorDefault.new(attr.arguments)
         end
     end
 end

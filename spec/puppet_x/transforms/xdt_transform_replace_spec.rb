@@ -10,7 +10,7 @@ describe XdtTransformReplace do
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.xpath('/root/a')[0]
 
-                XdtTransformReplace.new.transform(source_node, transform_node, [])
+                XdtTransformReplace.new([]).transform(source_node, transform_node)
                 expect(source_doc.root.elements[0].elements[0].to_s).to eql('<c1/>')
                 expect(source_doc.root.elements[0].elements[1].to_s).to eql('<c2/>')
             end

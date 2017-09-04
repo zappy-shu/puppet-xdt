@@ -10,7 +10,7 @@ describe XdtTransformSetAttributes do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformSetAttributes.new.transform(source_node, transform_node, [])
+                XdtTransformSetAttributes.new([]).transform(source_node, transform_node)
                 expect(source_node.attributes.count).to eql(1)
                 expect(source_node.attributes['b'].value).to eql('bbb')
                 expect(source_node.attributes['a'].nil?).to eql(true)
@@ -23,7 +23,7 @@ describe XdtTransformSetAttributes do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformSetAttributes.new.transform(source_node, transform_node, ['b'])
+                XdtTransformSetAttributes.new(['b']).transform(source_node, transform_node)
                 expect(source_node.attributes.count).to eql(2)
                 expect(source_node.attributes['b'].value).to eql('bbb')
                 expect(source_node.attributes['a'].value).to eql('aaa')
@@ -36,7 +36,7 @@ describe XdtTransformSetAttributes do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformSetAttributes.new.transform(source_node, transform_node, ['a'])
+                XdtTransformSetAttributes.new(['a']).transform(source_node, transform_node)
                 expect(source_node.attributes.count).to eql(1)
                 expect(source_node.attributes['a'].value).to eql('aaa1')
             end
@@ -48,7 +48,7 @@ describe XdtTransformSetAttributes do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformSetAttributes.new.transform(source_node, transform_node, ['b','c'])
+                XdtTransformSetAttributes.new(['b','c']).transform(source_node, transform_node)
                 expect(source_node.attributes.count).to eql(3)
                 expect(source_node.attributes['a'].value).to eql('aaa')
                 expect(source_node.attributes['b'].value).to eql('bbb1')
@@ -62,7 +62,7 @@ describe XdtTransformSetAttributes do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformSetAttributes.new.transform(source_node, transform_node, ['b'])
+                XdtTransformSetAttributes.new(['b']).transform(source_node, transform_node)
                 expect(source_node.attributes.count).to eql(2)
                 expect(source_node.attributes['a'].value).to eql('aaa')
                 expect(source_node.attributes['b'].value).to eql('bbb')
@@ -75,7 +75,7 @@ describe XdtTransformSetAttributes do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformSetAttributes.new.transform(source_node, transform_node, ['a','b'])
+                XdtTransformSetAttributes.new(['a','b']).transform(source_node, transform_node)
                 expect(source_node.attributes.count).to eql(1)
                 expect(source_node.attributes['a'].value).to eql('aaa1')
             end

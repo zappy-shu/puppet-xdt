@@ -10,7 +10,7 @@ describe XdtLocatorDefault do
                 source_node = source_doc.root
                 locator_node = locator_doc.xpath('/root/a')[0]
 
-                matching_nodes = XdtLocatorDefault.new.locate(source_node, locator_node, [])
+                matching_nodes = XdtLocatorDefault.new([]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(1)
                 expect(matching_nodes[0].path).to eql('/root/a')
             end
@@ -22,7 +22,7 @@ describe XdtLocatorDefault do
                 source_node = source_doc.root
                 locator_node = locator_doc.xpath('/root/a')[0]
 
-                matching_nodes = XdtLocatorDefault.new.locate(source_node, locator_node, [])
+                matching_nodes = XdtLocatorDefault.new([]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(2)
                 expect(matching_nodes[0].path).to eql('/root/a[1]')
                 expect(matching_nodes[1].path).to eql('/root/a[2]')

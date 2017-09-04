@@ -7,7 +7,7 @@ describe XdtTransformRemoveAttributes do
             it 'source node has no attributes' do
                 source_doc = Nokogiri::XML('<root><a a="aaa" b="bbb"/></root>')
                 source_node = source_doc.xpath('/root/a')[0]
-                XdtTransformRemoveAttributes.new.transform(source_node, nil, [])
+                XdtTransformRemoveAttributes.new([]).transform(source_node, nil)
                 expect(source_node.attributes.count).to eql(0)
             end
         end
@@ -15,7 +15,7 @@ describe XdtTransformRemoveAttributes do
             it 'child node still has attributes' do
                 source_doc = Nokogiri::XML('<root><a a="aaa"><b b="bbb"/></a></root>')
                 source_node = source_doc.xpath('/root/a')[0]
-                XdtTransformRemoveAttributes.new.transform(source_node, nil, [])
+                XdtTransformRemoveAttributes.new([]).transform(source_node, nil)
                 expect(source_node.attributes.count).to eql(0)
                 expect(source_node.xpath('b')[0].attributes.count).to eql(1)
             end
@@ -24,7 +24,7 @@ describe XdtTransformRemoveAttributes do
             it 'only remove attributes in arguments' do
                 source_doc = Nokogiri::XML('<root a="aaa" b="bbb" />')
                 source_node = source_doc.root
-                XdtTransformRemoveAttributes.new.transform(source_node, nil, ['a'])
+                XdtTransformRemoveAttributes.new(['a']).transform(source_node, nil)
                 expect(source_node.attributes.count).to eql(1)
                 expect(source_node['b']).to eql('bbb')
             end
@@ -33,7 +33,7 @@ describe XdtTransformRemoveAttributes do
             it 'dont throw error' do
                 source_doc = Nokogiri::XML('<root a="aaa" b="bbb" />')
                 source_node = source_doc.root
-                XdtTransformRemoveAttributes.new.transform(source_node, nil, ['a','c'])
+                XdtTransformRemoveAttributes.new(['a','c']).transform(source_node, nil)
                 expect(source_node.attributes.count).to eql(1)
                 expect(source_node['b']).to eql('bbb')
             end

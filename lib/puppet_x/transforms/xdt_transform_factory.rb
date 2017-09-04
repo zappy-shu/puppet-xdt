@@ -6,19 +6,19 @@ class XdtTransformFactory
         return nil unless attr.name == 'Transform'
         case attr.value
         when 'InsertAfter'
-            return XdtTransformInsertAfter.new
+            return XdtTransformInsertAfter.new(attr.arguments)
         when 'InsertBefore'
-            return XdtTransformInsertBefore.new
+            return XdtTransformInsertBefore.new(attr.arguments)
         when 'Insert'
-            return XdtTransformInsert.new
+            return XdtTransformInsert.new(attr.arguments)
         when 'RemoveAll'
-            return XdtTransformRemoveAll.new
+            return XdtTransformRemoveAll.new(attr.arguments)
         when 'RemoveAttributes'
-            return XdtTransformRemoveAttributes.new
+            return XdtTransformRemoveAttributes.new(attr.arguments)
         when 'Replace'
-            return XdtTransformReplace.new
+            return XdtTransformReplace.new(attr.arguments)
         when 'SetAttributes'
-            return XdtTransformSetAttributes.new
+            return XdtTransformSetAttributes.new(attr.arguments)
         else
             return nil
         end

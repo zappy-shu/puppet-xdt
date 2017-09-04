@@ -10,7 +10,7 @@ describe XdtLocatorCondition do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorCondition.new.locate(source_node, locator_node, [])
+                matching_nodes = XdtLocatorCondition.new([]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(0)
             end
         end
@@ -21,7 +21,7 @@ describe XdtLocatorCondition do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorCondition.new.locate(source_node, locator_node, ['1', '2'])
+                matching_nodes = XdtLocatorCondition.new(['1', '2']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(0)
             end
         end
@@ -32,7 +32,7 @@ describe XdtLocatorCondition do
                 source_node = source_doc.root
                 locator_node = locator_doc.xpath('/root/a')[0]
 
-                matching_nodes = XdtLocatorCondition.new.locate(source_node, locator_node, [''])
+                matching_nodes = XdtLocatorCondition.new(['']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(2)
                 expect(matching_nodes[0].path).to eql('/root/a[1]')
                 expect(matching_nodes[1].path).to eql('/root/a[2]')
@@ -45,7 +45,7 @@ describe XdtLocatorCondition do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorCondition.new.locate(source_node, locator_node, [''])
+                matching_nodes = XdtLocatorCondition.new(['']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(2)
                 expect(matching_nodes[0].path).to eql('/root/a[1]')
                 expect(matching_nodes[1].path).to eql('/root/a[2]')
@@ -58,7 +58,7 @@ describe XdtLocatorCondition do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorCondition.new.locate(source_node, locator_node, ["@a = 'aaa'"])
+                matching_nodes = XdtLocatorCondition.new(["@a = 'aaa'"]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(1)
                 expect(matching_nodes[0].path).to eql('/root/a[1]')
             end

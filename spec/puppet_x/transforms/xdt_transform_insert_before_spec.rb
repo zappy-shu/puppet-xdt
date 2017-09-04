@@ -10,7 +10,7 @@ describe XdtTransformInsertBefore do
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.root
 
-                XdtTransformInsertBefore.new.transform(source_node, transform_node, [])
+                XdtTransformInsertBefore.new([]).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(1)
             end
         end
@@ -21,7 +21,7 @@ describe XdtTransformInsertBefore do
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.root
 
-                XdtTransformInsertBefore.new.transform(source_node, transform_node, ['1','2'])
+                XdtTransformInsertBefore.new(['1','2']).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(1)
             end
         end
@@ -32,7 +32,7 @@ describe XdtTransformInsertBefore do
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.root
 
-                XdtTransformInsertBefore.new.transform(source_node, transform_node, ['/root/nope'])
+                XdtTransformInsertBefore.new(['/root/nope']).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(1)
             end
         end
@@ -43,7 +43,7 @@ describe XdtTransformInsertBefore do
                 source_node = source_doc.root
                 transform_node = transform_doc.root
 
-                XdtTransformInsertBefore.new.transform(source_node, transform_node, ['/root'])
+                XdtTransformInsertBefore.new(['/root']).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(1)
             end
         end
@@ -54,7 +54,7 @@ describe XdtTransformInsertBefore do
                 source_node = source_doc.xpath('/root/c')[0]
                 transform_node = transform_doc.root
 
-                XdtTransformInsertBefore.new.transform(source_node, transform_node, ['/root/c'])
+                XdtTransformInsertBefore.new(['/root/c']).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(3)
                 expect(source_doc.root.elements[0].to_s).to eql('<a/>')
                 expect(source_doc.root.elements[1].to_s).to eql('<b/>')

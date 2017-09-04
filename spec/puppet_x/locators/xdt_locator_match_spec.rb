@@ -10,7 +10,7 @@ describe XdtLocatorMatch do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorMatch.new.locate(source_node, locator_node, [])
+                matching_nodes = XdtLocatorMatch.new([]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(2)
                 expect(matching_nodes[0].path).to eql('/root/a[1]')
                 expect(matching_nodes[1].path).to eql('/root/a[2]')
@@ -23,7 +23,7 @@ describe XdtLocatorMatch do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorMatch.new.locate(source_node, locator_node, ['nope'])
+                matching_nodes = XdtLocatorMatch.new(['nope']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(0)
             end
         end
@@ -34,7 +34,7 @@ describe XdtLocatorMatch do
                 source_node = source_doc.root
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorMatch.new.locate(source_node, locator_node, ["a"])
+                matching_nodes = XdtLocatorMatch.new(["a"]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(1)
                 expect(matching_nodes[0].path).to eql('/root/a[1]')
             end

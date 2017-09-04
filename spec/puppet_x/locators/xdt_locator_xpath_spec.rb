@@ -10,7 +10,7 @@ describe XdtLocatorXpath do
                 source_node = source_doc.xpath('/root/a')[0]
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorXpath.new.locate(source_node, locator_node, [])
+                matching_nodes = XdtLocatorXpath.new([]).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(0)
             end
         end
@@ -21,7 +21,7 @@ describe XdtLocatorXpath do
                 source_node = source_doc.xpath('/root/a')[0]
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorXpath.new.locate(source_node, locator_node, ['1', '2'])
+                matching_nodes = XdtLocatorXpath.new(['1', '2']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(0)
             end
         end
@@ -32,7 +32,7 @@ describe XdtLocatorXpath do
                 source_node = source_doc.xpath('/root/a')[0]
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorXpath.new.locate(source_node, locator_node, ['//root/b'])
+                matching_nodes = XdtLocatorXpath.new(['//root/b']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(0)
             end
         end
@@ -43,7 +43,7 @@ describe XdtLocatorXpath do
                 source_node = source_doc.xpath('/root/a')[0]
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorXpath.new.locate(source_node, locator_node, ['//root/a'])
+                matching_nodes = XdtLocatorXpath.new(['//root/a']).locate(source_node, locator_node)
                 expect(matching_nodes.length).to eql(1)
                 expect(matching_nodes[0]).to eql(source_node)
             end
@@ -55,7 +55,7 @@ describe XdtLocatorXpath do
                 source_nodes = source_doc.xpath('/root/a')
                 locator_node = locator_doc.root
 
-                matching_nodes = XdtLocatorXpath.new.locate(source_nodes[0], locator_node, ['//root/a'])
+                matching_nodes = XdtLocatorXpath.new(['//root/a']).locate(source_nodes[0], locator_node)
                 expect(matching_nodes.length).to eql(2)
                 expect(matching_nodes[0]).to eql(source_nodes[0])
                 expect(matching_nodes[1]).to eql(source_nodes[1])
