@@ -5,6 +5,7 @@
 1. [Description](#description)
 2. [Reference](#reference)
     * [xdt_file](#xdt_file)
+3. [Notes](#notes)
 
 ## Description
 Transforms XMLs files using the XDT standard: https://msdn.microsoft.com/en-us/library/dd465326(v=vs.110).aspx
@@ -37,3 +38,6 @@ The absolute path to the file containing the XML to transform.
 
 ##### `transform_file`
 The absolute path to the file containing the transforms.
+
+## Notes
+Though this module has only been tested on Windows, it uses no Windows specific implementations and should therefore work on other operating systems. Use at your own risk.
