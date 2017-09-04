@@ -4,7 +4,6 @@ require_relative '../xdt_attribute'
 class XdtTransformFactory
     def create(attr)
         return nil unless attr.name == 'Transform'
-        puts attr.value
         case attr.value
         when 'InsertAfter'
             return XdtTransformInsertAfter.new
