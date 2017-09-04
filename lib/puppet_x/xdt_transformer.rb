@@ -1,6 +1,7 @@
-Dir[File.dirname(__FILE__) + '*.rb'].each {|file| require file }
-Dir[File.dirname(__FILE__) + '/locators/*.rb'].each {|file| require file }
-Dir[File.dirname(__FILE__) + '/transforms/*.rb'].each {|file| require file }
+require 'puppet_x/xdt_namespace'
+require 'puppet_x/locators/xdt_locator_factory'
+require 'puppet_x/transforms/xdt_transform_factory'
+require 'nokogiri'
 
 class XdtTransformer
     def initialize(source_doc, transform_doc)
