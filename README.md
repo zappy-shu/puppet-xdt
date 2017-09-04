@@ -30,10 +30,10 @@ If 'present' is specified, will ensure the destination file exists with the tran
 If 'absent' is specified, will ensure the destination file does not exist.
 
 ##### `destination_file`
-The absolute path to the destination file containing the transformed xml. Defaults to the resource name.
+The absolute path to the destination file containing the transformed XML. Defaults to the resource name.
 
 ##### `source_file`
-The absolute path to the file containing the xml to transform.
+The absolute path to the file containing the XML to transform.
 
 ##### `transform_file`
 The absolute path to the file containing the transforms.
