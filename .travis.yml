@@ -2,7 +2,7 @@
 sudo: false
 language: ruby
 cache: bundler
-script: bundler exec rake release_checks
+script: bundler exec rspec
 before_install:
   - gem update bundler
 notifications:
