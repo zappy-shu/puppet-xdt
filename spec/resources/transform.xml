@@ -1,18 +1,20 @@
 <root xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-	<basictransforms>
-		<basictransforms_insert a="aaaa" c="cccc" xdt:Transform="Insert" />
-		<basictransforms_insertafter_1 a="aaaa" c="cccc" xdt:Transform="InsertAfter(//root/basictransforms/basictransforms_insertafter)" />
-		<basictransforms_insertbefore_2 a="aaaa" c="cccc" xdt:Transform="InsertBefore(//root/basictransforms/basictransforms_insertbefore)" />
-		<basictransforms_remove a="aaaa" c="cccc" xdt:Transform="Remove" >
-			<basictransforms_remove_2 />
-		</basictransforms_remove>
-		<basictransforms_removeall xdt:Transform="RemoveAll" />
-		<basictransforms_removeattributes xdt:Transform="RemoveAttributes" />
-		<basictransforms_replace a="aaaa" c="cccc" xdt:Transform="Replace">
-			<basictransforms_replace_1 a="aaaa" c="cccc" />
-			<basictransforms_replace_3 />
-		</basictransforms_replace>
-		<basictransforms_setattributes a="aaaa" c="cccc" xdt:Transform="SetAttributes(a,c)" />
-		<basictransforms_setattributes a="aaaa" c="cccc" xdt:Transform="SetAttributes(a,c)" />
-	</basictransforms>
+	<transformonly>
+		<basictransforms_nonamespace>
+			<basictransforms_nonamespace_insert a="aaaa" c="cccc" xdt:Transform="Insert" />
+			<basictransforms_nonamespace_insertafter_1 a="aaaa" c="cccc" xdt:Transform="InsertAfter(//root/transformonly/basictransforms_nonamespace/basictransforms_nonamespace_insertafter)" />
+			<basictransforms_nonamespace_insertbefore_2 a="aaaa" c="cccc" xdt:Transform="InsertBefore(//root/transformonly/basictransforms_nonamespace/basictransforms_nonamespace_insertbefore)" />
+			<basictransforms_nonamespace_remove a="aaaa" c="cccc" xdt:Transform="Remove" >
+				<basictransforms_nonamespace_remove_2 />
+			</basictransforms_nonamespace_remove>
+			<basictransforms_nonamespace_removeall xdt:Transform="RemoveAll" />
+			<basictransforms_nonamespace_removeattributes xdt:Transform="RemoveAttributes" />
+			<basictransforms_nonamespace_replace a="aaaa" c="cccc" xdt:Transform="Replace">
+				<basictransforms_nonamespace_replace_1 a="aaaa" c="cccc" />
+				<basictransforms_nonamespace_replace_3 />
+			</basictransforms_nonamespace_replace>
+			<basictransforms_nonamespace_setattributes a="aaaa" c="cccc" xdt:Transform="SetAttributes(a,c)" />
+			<basictransforms_nonamespace_setallattributes a="aaaa" c="cccc" xdt:Transform="SetAttributes(a,c)" />
+		</basictransforms_nonamespace>
+	</transformonly>
 </root>

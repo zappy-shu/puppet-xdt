@@ -23,6 +23,7 @@ describe XdtTransformInsert do
                 transform_doc = Nokogiri::XML('<c/>')
                 source_node = source_doc.xpath('/root')[0]
                 transform_node = transform_doc.root
+                
                 XdtTransformInsert.new([]).transform(source_node, transform_node)
                 expect(source_doc.root.elements.length).to eql(3)
                 expect(source_doc.root.elements[0].to_s).to eql('<a/>')

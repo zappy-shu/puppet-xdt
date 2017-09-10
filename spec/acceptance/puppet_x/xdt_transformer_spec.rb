@@ -2,26 +2,34 @@ require 'puppetlabs_spec_helper/module_spec_helper'
 require 'puppet_x/xdt_transformer'
 require 'nokogiri'
 
+def compare_namespaces(expected, actual)
+    if expected.nil?
+        expect(actual).to eql(nil)
+    else
+        expect(actual.href).to eql(expected.href)
+        expect(actual.prefix).to eql(expected.prefix)
+    end
+end
+
 def compare_attributes(expected, actual)
     expected_attrs = expected.attribute_nodes
     actual_attrs = actual.attribute_nodes
-    expect(expected_attrs.length).to eql(actual_attrs.length)
+    expect(actual_attrs.length).to eql(expected_attrs.length)
     expected_attrs.each_with_index do |expected_attr, i|
-        expect(expected_attr.name).to eql(actual_attrs[i].name)
-        expect(expected_attr.value).to eql(actual_attrs[i].value)
-        expect(expected_attr.namespace).to eql(actual_attrs[i].namespace)
+        expect(actual_attrs[i].name).to eql(expected_attr.name)
+        expect(actual_attrs[i].value).to eql(expected_attr.value)
+        compare_namespaces(expected_attr.namespace, actual_attrs[i].namespace)
     end
 end
 
 def compare_elements(expected, actual)
-    expect(expected.name).to eql(actual.name)
-    expect(expected.namespace).to eql(actual.namespace)
-    expect(expected.elements.length).to eql(actual.elements.length)
-
+    expect(actual.name).to eql(expected.name)
+    compare_namespaces(expected.namespace, actual.namespace)
     compare_attributes(expected, actual)
-    expected.elements.each_with_index do |expected_child, i|
-        actual_child = actual.elements[i]
-        compare_elements(expected_child, actual_child)
+    
+    expect(actual.elements.length).to eql(expected.elements.length)
+        expected.elements.each_with_index do |expected_child, i|
+        compare_elements(expected_child, actual.elements[i])
     end
 end
 
