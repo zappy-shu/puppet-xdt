@@ -32,13 +32,7 @@ class XdtTransformer
                 end
             end
 
-            if locator.nil?
-                if transform.is_a?(XdtTransformInsertAfter) || transform.is_a?(XdtTransformInsertBefore)
-                    locator = XdtLocatorParent.new([])
-                else
-                    locator = XdtLocatorDefault.new([])
-                end
-            end
+            locator = get_default_locator(transform) if locator.nil?
 
             @xdt_namespace.remove_xdt_attributes(@transform_doc, transform_child)
             sources = locator.locate(source_node, transform_child)
@@ -49,6 +43,15 @@ class XdtTransformer
                 next if transform.is_a?(XdtTransformRemove)
                 walk_tree(source, transform_child)
             end
+        end
+    end
+
+    private
+    def get_default_locator(transform)
+        if transform.is_a?(XdtTransformInsertAfter) || transform.is_a?(XdtTransformInsertBefore) || transform.is_a?(XdtTransformInsert)
+            return XdtLocatorParent.new([])
+        else
+            return XdtLocatorDefault.new([])
         end
     end
 end

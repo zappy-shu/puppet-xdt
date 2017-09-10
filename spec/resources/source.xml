@@ -1,6 +1,5 @@
 <root>
 	<basictransforms>
-		<basictransforms_insert a="aaa" b="bbb" />
 		<basictransforms_insertafter a="aaa" b="bbb" />
 		<basictransforms_insertbefore a="aaa" b="bbb" />
 		<basictransforms_remove a="aaa" b="bbb">

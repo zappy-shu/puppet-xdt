@@ -33,7 +33,7 @@ describe XdtTransformer do
                 transform_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform.xml"))
                 expected_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/expected.xml"))
                 transformed_doc = XdtTransformer.new(source_doc, transform_doc).transform
-                #File.write("#{Dir.pwd}/spec/resources/actual.xml", transformed_doc.to_s)
+                File.write("#{Dir.pwd}/spec/resources/actual.xml", transformed_doc.to_s)
                 compare_elements(expected_doc.root, transformed_doc.root)
             end
         end
