@@ -1,0 +1,21 @@
+<root>
+	<basictransforms>
+		<basictransforms_insert a="aaa" b="bbb" />
+		<basictransforms_insertafter a="aaa" b="bbb" />
+		<basictransforms_insertafter_1 a="aaaa" c="cccc" />
+		<basictransforms_insertbefore_2 a="aaaa" c="cccc" />
+		<basictransforms_insertbefore a="aaa" b="bbb" />
+		<basictransforms_removeattributes />
+		<basictransforms_replace a="aaaa" c="cccc">
+			<basictransforms_replace_1 a="aaaa" c="cccc" />
+			<basictransforms_replace_3 />
+		</basictransforms_replace>
+		<basictransforms_setattributes a="aaaa" b="bbb" c="cccc">
+			<basictransforms_1 />
+		</basictransforms_setattributes>
+		<basictransforms_setallattributes a="aaa" b="bbb">
+			<basictransforms_setallattributes_1 />
+		</basictransforms_setallattributes>
+		<basictransforms_insert a="aaaa" c="cccc" />
+	</basictransforms>
+</root>

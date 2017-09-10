@@ -1,0 +1,25 @@
+<root>
+	<basictransforms>
+		<basictransforms_insert a="aaa" b="bbb" />
+		<basictransforms_insertafter a="aaa" b="bbb" />
+		<basictransforms_insertbefore a="aaa" b="bbb" />
+		<basictransforms_remove a="aaa" b="bbb">
+			<basictransforms_remove_1 />
+		</basictransforms_remove>
+		<basictransforms_removeall>
+			<basictransforms_removeall_1 />
+			<basictransforms_removeall_2 />
+		</basictransforms_removeall>
+		<basictransforms_removeattributes a="aaa" b="bbb" />
+		<basictransforms_replace a="aaa" b="bbb">
+			<basictransforms_replace_1 a="aaa" b="bbb" />
+			<basictransforms_replace_2 />
+		</basictransforms_replace>
+		<basictransforms_setattributes a="aaa" b="bbb" >
+			<basictransforms_1 />
+		</basictransforms_setattributes>
+		<basictransforms_setallattributes a="aaa" b="bbb" >
+			<basictransforms_setallattributes_1 />
+		</basictransforms_setallattributes>		
+	</basictransforms>
+</root>
