@@ -1,3 +1,4 @@
+require 'puppetlabs_spec_helper/module_spec_helper'
 require 'puppet_x/transforms/xdt_transform_insert'
 require 'nokogiri'
 
@@ -26,9 +27,9 @@ describe XdtTransformInsert do
             end
         end
         context 'when source node is first of 2 children of parent' do
-            it 'insert transform node between source node and second child' do
-                source_doc = Nokogiri::XML('<root><a/><c/></root>')
-                transform_doc = Nokogiri::XML('<b/>')
+            it 'insert transform node after all children' do
+                source_doc = Nokogiri::XML('<root><a/><b/></root>')
+                transform_doc = Nokogiri::XML('<c/>')
                 source_node = source_doc.xpath('/root/a')[0]
                 transform_node = transform_doc.root
                 XdtTransformInsert.new([]).transform(source_node, transform_node)

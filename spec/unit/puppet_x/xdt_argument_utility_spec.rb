@@ -1,3 +1,4 @@
+require 'puppetlabs_spec_helper/module_spec_helper'
 require 'puppet_x/xdt_argument_utility'
 
 describe XdtArgumentUtility do

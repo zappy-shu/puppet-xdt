@@ -11,7 +11,7 @@ class XdtTransformInsert
         if (source_node.parent.nil? || source_node == source_node.document.root)
             warn "Source node '#{source_node.path}' does not have parent to insert '#{transform_node.path}'"
         else
-            source_node.after(transform_node)
+            source_node.parent.elements.last.after(transform_node)
         end
     end
 end

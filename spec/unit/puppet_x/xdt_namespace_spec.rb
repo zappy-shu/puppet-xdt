@@ -1,6 +1,6 @@
+require 'puppetlabs_spec_helper/module_spec_helper'
 require 'puppet_x/xdt_namespace'
 require 'puppet_x/xdt_attribute'
-
 require 'nokogiri'
 
 describe XdtNamespace do

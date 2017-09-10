@@ -23,7 +23,7 @@ class XdtTransformer
         transform_node.elements.each do |transform_child|
             xdt_attributes = @xdt_namespace.get_xdt_attributes(@transform_doc, transform_child)
             transform = nil
-            locator = XdtLocatorDefault.new([])
+            locator = nil
             xdt_attributes.each do |attr|
                 if attr.is_transform?
                     transform = @transform_factory.create(attr)
@@ -32,8 +32,17 @@ class XdtTransformer
                 end
             end
 
+            if locator.nil?
+                if transform.is_a?(XdtTransformInsertAfter) || transform.is_a?(XdtTransformInsertBefore)
+                    locator = XdtLocatorParent.new([])
+                else
+                    locator = XdtLocatorDefault.new([])
+                end
+            end
+
             @xdt_namespace.remove_xdt_attributes(@transform_doc, transform_child)
             sources = locator.locate(source_node, transform_child)
+            
             sources.each do |source|
                 transform.transform(source, transform_child) unless transform.nil?
                 break if transform.is_a?(XdtTransformRemoveAll)
