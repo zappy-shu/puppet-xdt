@@ -1,6 +1,6 @@
 /test_files/
 demo.rb
-/spec/resources/actual.xml
+.temp.actual.xml
 
 *.gem
 *.rbc

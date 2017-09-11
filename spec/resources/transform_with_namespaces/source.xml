@@ -1,0 +1,12 @@
+<root>
+	<a:parent_with_prefix xmlns:a="http://prefix_namespace/">
+		<a:child_with_prefix a="aaa" />
+		<child_without_prefix a="bbb" />
+	</a:parent_with_prefix>
+	<parent_with_default_namespace xmlns="http://default_namespace/">
+		<child_with_default_namespace a="aaa" />
+	</parent_with_default_namespace>
+	<parent_without_namespace>
+		<child_without_namespace a="aaa" />
+	</parent_without_namespace>
+</root>

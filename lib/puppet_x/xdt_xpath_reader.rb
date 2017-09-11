@@ -10,9 +10,8 @@ class XdtXpathReader
         return xpath
     end
     def self.read_local(node)
-        xpath = ''
-        xpath += "#{node.namespace.prefix}:" unless node.namespace.nil?
-        return xpath + node.name
+        return node.name if node.namespace.nil?
+        return "*[local-name()='#{node.name}' and namespace-uri()='#{node.namespace.href}']"
     end
     def self.read_attribute(attr)
         xpath = ''

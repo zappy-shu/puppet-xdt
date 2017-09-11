@@ -1,6 +1,6 @@
 <root>
 	<transformonly>
-		<basictransforms_nonamespace>
+		<!-- <basictransforms_nonamespace>
 			<basictransforms_nonamespace_insertafter a="aaa" b="bbb" />
 			<basictransforms_nonamespace_insertafter_1 a="aaaa" c="cccc" />
 			<basictransforms_nonamespace_insertbefore_2 a="aaaa" c="cccc" />
@@ -18,5 +18,11 @@
 			</basictransforms_nonamespace_setallattributes>
 			<basictransforms_nonamespace_insert a="aaaa" c="cccc" />
 		</basictransforms_nonamespace>
+		<basictransforms_namespace xmlns:a="http://a/">
+			<a:basictransforms_namespace_replace b="bbb" />
+		</basictransforms_namespace> -->
+		<b:basictransforms_parentnamespace xmlns:b="http://b/">
+			<basictransforms_namespace_replace b="bbb" />
+		</b:basictransforms_parentnamespace>
 	</transformonly>
 </root>

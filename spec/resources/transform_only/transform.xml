@@ -1,0 +1,16 @@
+<root xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<insert a="aaaa" c="cccc" xdt:Transform="Insert" />
+	<insertafter_1 a="aaaa" c="cccc" xdt:Transform="InsertAfter(//root/insertafter)" />
+	<insertbefore_2 a="aaaa" c="cccc" xdt:Transform="InsertBefore(//root/insertbefore)" />
+	<remove a="aaaa" c="cccc" xdt:Transform="Remove" >
+		<remove_2 />
+	</remove>
+	<removeall xdt:Transform="RemoveAll" />
+	<removeattributes xdt:Transform="RemoveAttributes" />
+	<replace a="aaaa" c="cccc" xdt:Transform="Replace">
+		<replace_1 a="aaaa" c="cccc" />
+		<replace_3 />
+	</replace>
+	<setattributes a="aaaa" c="cccc" xdt:Transform="SetAttributes(a,c)" />
+	<setallattributes a="aaaa" c="cccc" xdt:Transform="SetAttributes(a,c)" />
+</root>

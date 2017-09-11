@@ -1,0 +1,22 @@
+<root>
+	<insertafter a="aaa" b="bbb" />
+	<insertbefore a="aaa" b="bbb" />
+	<remove a="aaa" b="bbb">
+		<remove_1 />
+	</remove>
+	<removeall>
+		<removeall_1 />
+		<removeall_2 />
+	</removeall>
+	<removeattributes a="aaa" b="bbb" />
+	<replace a="aaa" b="bbb">
+		<replace_1 a="aaa" b="bbb" />
+		<replace_2 />
+	</replace>
+	<setattributes a="aaa" b="bbb" >
+		<setattributes_1 />
+	</setattributes>
+	<setallattributes a="aaa" b="bbb" >
+		<setallattributes_1 />
+	</setallattributes>		
+</root>

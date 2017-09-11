@@ -35,13 +35,23 @@ end
 
 describe XdtTransformer do
     describe "#transform" do
-        context "when transforming spec/resources/source.xml with spec/resources/transform.xml" do
-            it "transformed file same as spec/resources/expected.xml" do
-                source_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/source.xml"))
-                transform_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform.xml"))
-                expected_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/expected.xml"))
+        context "when transforming spec/resources/transform_only/source.xml with spec/resources/transform_only/transform.xml" do
+            it "transformed file same as spec/resources/transform_only/expected.xml" do
+                source_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_only/source.xml"))
+                transform_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_only/transform.xml"))
+                expected_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_only/expected.xml"))
                 transformed_doc = XdtTransformer.new(source_doc, transform_doc).transform
-                File.write("#{Dir.pwd}/spec/resources/actual.xml", transformed_doc.to_s)
+                File.write("#{Dir.pwd}/spec/resources/transform_only/.temp.actual.xml", transformed_doc.to_s)
+                compare_elements(expected_doc.root, transformed_doc.root)
+            end
+        end
+        context "when transforming spec/resources/transform_with_namespaces/source.xml with spec/resources/transform_with_namespaces/transform.xml" do
+            it "transformed file same as spec/resources/transform_with_namespaces/expected.xml" do
+                source_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_with_namespaces/source.xml"))
+                transform_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_with_namespaces/transform.xml"))
+                expected_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_with_namespaces/expected.xml"))
+                transformed_doc = XdtTransformer.new(source_doc, transform_doc).transform
+                File.write("#{Dir.pwd}/spec/resources/transform_with_namespaces/.temp.actual.xml", transformed_doc.to_s)
                 compare_elements(expected_doc.root, transformed_doc.root)
             end
         end
