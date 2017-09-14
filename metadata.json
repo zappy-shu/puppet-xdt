@@ -1,6 +1,6 @@
 {
   "name": "zappyshu-xdt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Zappy Shu",
   "summary": "Transforms XMLs files using the XDT standard",
   "license": "Apache-2.0",
