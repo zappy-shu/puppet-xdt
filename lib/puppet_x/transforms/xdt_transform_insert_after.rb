@@ -17,7 +17,6 @@ class XdtTransformInsertAfter
 
         xpath = @transform_arguments[0]
         insert_after_nodes = source_node.xpath(@transform_arguments[0])
-        puts insert_after_nodes
         if insert_after_nodes.length == 0
             warn "Cannot find xpath '#{xpath}'"
             return

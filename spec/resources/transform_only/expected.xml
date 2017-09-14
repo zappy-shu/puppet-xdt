@@ -1,18 +1,19 @@
+<?xml version="1.0"?>
 <root>
-	<insertafter a="aaa" b="bbb" />
-	<insertafter_1 a="aaaa" c="cccc" />
-	<insertbefore_2 a="aaaa" c="cccc" />
-	<insertbefore a="aaa" b="bbb" />
-	<removeattributes />
+	<insertafter a="aaa" b="bbb"/>
+	<insertafter_1 a="aaaa" c="cccc"/>
+	<insertbefore_2 a="aaaa" c="cccc"/>
+	<insertbefore a="aaa" b="bbb"/>
+	<removeattributes/>
 	<replace a="aaaa" c="cccc">
-		<replace_1 a="aaaa" c="cccc" />
-		<replace_3 />
+		<replace_1 a="aaaa" c="cccc"/>
+		<replace_3/>
 	</replace>
 	<setattributes a="aaaa" b="bbb" c="cccc">
-		<setattributes_1 />
+		<setattributes_1/>
 	</setattributes>
 	<setallattributes a="aaaa" b="bbb" c="cccc">
-		<setallattributes_1 />
+		<setallattributes_1/>
 	</setallattributes>
-	<insert a="aaaa" c="cccc" />
+	<insert a="aaaa" c="cccc"/>
 </root>

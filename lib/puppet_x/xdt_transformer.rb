@@ -8,7 +8,6 @@ class XdtTransformer
         @source_doc = source_doc
         @transform_doc = transform_doc
         @doc_to_transform = source_doc.clone
-        #puts @doc_to_transform
         
         @xdt_namespace = XdtNamespace.new
         @locator_factory = XdtLocatorFactory.new

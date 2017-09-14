@@ -26,9 +26,8 @@ def compare_elements(expected, actual)
     expect(actual.name).to eql(expected.name)
     compare_namespaces(expected.namespace, actual.namespace)
     compare_attributes(expected, actual)
-    
     expect(actual.elements.length).to eql(expected.elements.length)
-        expected.elements.each_with_index do |expected_child, i|
+    expected.elements.each_with_index do |expected_child, i|
         compare_elements(expected_child, actual.elements[i])
     end
 end
@@ -41,6 +40,7 @@ describe XdtTransformer do
                 transform_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_only/transform.xml"))
                 expected_doc = Nokogiri::XML(File.read("#{Dir.pwd}/spec/resources/transform_only/expected.xml"))
                 transformed_doc = XdtTransformer.new(source_doc, transform_doc).transform
+                
                 File.write("#{Dir.pwd}/spec/resources/transform_only/.temp.actual.xml", transformed_doc.to_s)
                 compare_elements(expected_doc.root, transformed_doc.root)
             end
