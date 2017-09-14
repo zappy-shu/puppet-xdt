@@ -7,15 +7,17 @@ class XdtTransformer
     def initialize(source_doc, transform_doc)
         @source_doc = source_doc
         @transform_doc = transform_doc
-
+        @doc_to_transform = source_doc.clone
+        #puts @doc_to_transform
+        
         @xdt_namespace = XdtNamespace.new
         @locator_factory = XdtLocatorFactory.new
         @transform_factory = XdtTransformFactory.new
     end
 
     def transform
-        walk_tree(@source_doc.root, @transform_doc.root) if @xdt_namespace.has_xdt_namespace?(@transform_doc)
-        return @source_doc
+        walk_tree(@doc_to_transform.root, @transform_doc.root) if @xdt_namespace.has_xdt_namespace?(@transform_doc)
+        return @doc_to_transform
     end
 
     private

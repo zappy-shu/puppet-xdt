@@ -31,9 +31,9 @@ describe XdtXpathReader do
             end
         end
         context 'when node has namespace' do
-            it 'return prefix:name' do
+            it 'return with local name and namespace uri' do
                 node = Nokogiri::XML('<root xmlns:ns="space"><ns:a/><ns:a/></root>').xpath('/root/ns:a')[0]
-                expect(XdtXpathReader.read_local(node)).to eql('ns:a')
+                expect(XdtXpathReader.read_local(node)).to eql("*[local-name()='a' and namespace-uri()='space']")
             end
         end
     end

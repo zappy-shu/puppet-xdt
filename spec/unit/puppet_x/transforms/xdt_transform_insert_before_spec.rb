@@ -62,5 +62,34 @@ describe XdtTransformInsertBefore do
                 expect(source_doc.root.elements[2].to_s).to eql('<c/>')
             end
         end
+        context 'when inserting to parent with namespace while node has no namespace' do
+            it 'inserted node has no namespace' do
+                source_doc = Nokogiri::XML('<n:root xmlns:n="ns"><a/><c/></n:root>')
+                transform_doc = Nokogiri::XML('<b/>')
+                source_node = source_doc.root
+                transform_node = transform_doc.root
+
+                XdtTransformInsertBefore.new(['/n:root/c']).transform(source_node, transform_node)
+                expect(source_doc.root.elements.length).to eql(3)
+                expect(source_doc.root.elements[0].to_s).to eql('<a/>')
+                expect(source_doc.root.elements[1].to_s).to eql('<b/>')
+                expect(source_doc.root.elements[2].to_s).to eql('<c/>')
+            end
+        end
+        context 'when inserting to parent with namespace while node has different namespace' do
+            it 'inserted node has own namespace' do
+                source_doc = Nokogiri::XML('<n1:root xmlns:n1="ns1"><a/><c/></n:root>')
+                transform_doc = Nokogiri::XML('<n2:b xmlns:n2="ns2"/>')
+                source_node = source_doc.root
+                transform_node = transform_doc.root
+
+                XdtTransformInsertBefore.new(['/n1:root/c']).transform(source_node, transform_node)
+                expect(source_doc.root.elements.length).to eql(3)
+                expect(source_doc.root.elements[0].to_s).to eql('<a/>')
+                expect(source_doc.root.elements[1].to_s).to eql('<n2:b xmlns:n2="ns2"/>')
+                expect(source_doc.root.elements[2].to_s).to eql('<c/>')
+                expect(source_doc.root.elements[1].namespace.href).to eql("ns2")
+            end
+        end
     end
 end
