@@ -17,6 +17,10 @@
       ]
     }
   ],
+  "tags": [
+    "xml",
+    "xdt"
+  ],
   "requirements": [
     {  
       "name": "puppet",
